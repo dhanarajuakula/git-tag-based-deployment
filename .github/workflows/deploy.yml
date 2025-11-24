@@ -3,7 +3,7 @@ name: Deploy Admin Service
 on:
   push:
     branches:
-      - dev123
+      - dev
       - qa
     tags:
       - 'v*'         # e.g., v1.0.0
