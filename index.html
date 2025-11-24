@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple Static Site</title>
+  <meta name="description" content="A clean, responsive static page ready for GitHub Pages deployment." />
+
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#94a3b8; --accent:#7c3aed; --glass: rgba(255,255,255,0.03);
+      --radius:14px; --maxw:1100px;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;color:#e6eef8;background:linear-gradient(180deg,var(--bg),#071020);-webkit-font-smoothing:antialiased}
+    .container{max-width:var(--maxw);margin:40px auto;padding:28px}
+
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:inline-flex;align-items:center;justify-content:center;font-weight:700;color:white}
+    nav{display:flex;gap:12px;align-items:center}
+    a.btn{padding:8px 14px;border-radius:10px;text-decoration:none;background:var(--glass);border:1px solid rgba(255,255,255,0.03);color:var(--muted);font-weight:600}
+    a.primary{background:linear-gradient(90deg,var(--accent),#06b6d4);color:white;border:none}
+
+    main{display:grid;grid-template-columns:1fr 420px;gap:28px;margin-top:36px;align-items:center}
+    .hero{padding:28px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:var(--radius);box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+    h1{margin:0 0 14px;font-size:28px}
+    p.lead{margin:0 0 20px;color:var(--muted);line-height:1.6}
+
+    .card{background:var(--card);padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .meta{display:flex;gap:12px;align-items:center;color:var(--muted);font-size:14px}
+
+    ul.features{padding:0;margin:18px 0 0;list-style:none;display:grid;gap:10px}
+    ul.features li{padding:12px;border-radius:10px;background:rgba(255,255,255,0.02)}
+
+    footer{margin-top:34px;color:var(--muted);font-size:13px}
+
+    /* responsive */
+    @media (max-width:880px){main{grid-template-columns:1fr;}
+      .logo{width:40px;height:40px}
+      .container{margin:18px;padding:18px}
+    }
+
+    /* light theme override (tiny) */
+    .light{--bg:#f7fbff;--card:#ffffff;--muted:#475569;--accent:#2563eb;--glass:rgba(10,20,40,0.03);color-scheme:light}
+  </style>
+</head>
+<body>
+  <div class="container" id="page">
+    <header>
+      <div class="brand">
+        <div class="logo">SG</div>
+        <div>
+          <div style="font-weight:700">Static GitHub Page</div>
+          <div style="font-size:12px;color:var(--muted)">Simple, fast, deploy-ready</div>
+        </div>
+      </div>
+
+      <nav>
+        <a class="btn" href="#features">Features</a>
+        <a class="btn" href="#setup">Deploy</a>
+        <a class="btn primary" href="#">Get Started</a>
+        <button id="themeToggle" class="btn" title="Toggle theme">Toggle</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>Beautiful, tiny static page — ready for GitHub Pages</h1>
+        <p class="lead">This single-file static site includes responsive layout, basic styles and a tiny interactive theme toggle. Drop it into a repo named <code>username.github.io</code> or publish from the <code>main</code> branch / <code>/docs</code> folder.</p>
+
+        <div class="card">
+          <div class="meta">🚀 Quick actions — copy this file to your repo, push, and enable Pages</div>
+          <ul class="features">
+            <li><strong>Responsive</strong> — looks good on phones and desktops.</li>
+            <li><strong>No build step</strong> — pure HTML/CSS/JS.</li>
+            <li><strong>Accessible</strong> — semantic markup and readable contrast.</li>
+          </ul>
+        </div>
+
+      </section>
+
+      <aside class="card">
+        <h3 id="setup">Deploy to GitHub Pages</h3>
+        <ol style="padding-left:18px">
+          <li>Create a new repo on GitHub (or use <code>username.github.io</code>).</li>
+          <li>Save this file as <code>index.html</code> in the repo root (or <code>/docs/index.html</code>).</li>
+          <li>Commit & push to the <code>main</code> branch.</li>
+          <li>On GitHub, go to <em>Settings → Pages</em> and choose <code>main</code> (or <code>/docs</code>) as source.</li>
+          <li>Visit <code>https://username.github.io/repo</code> (or <code>https://username.github.io</code> for a user site).</li>
+        </ol>
+
+        <h4 style="margin-top:14px">Commands</h4>
+        <pre style="background:rgba(0,0,0,0.3);padding:10px;border-radius:8px;color:#e6eef8">git init
+git add index.html
+git commit -m "initial site"
+git branch -M main
+git remote add origin https://github.com/USERNAME/REPO.git
+git push -u origin main</pre>
+      </aside>
+    </main>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>Made with ❤️ · Single-file static page</div>
+        <div style="font-size:13px;color:var(--muted)">Tip: rename the repo to <code>username.github.io</code> for a root user site.</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // tiny theme toggle
+    const page = document.getElementById('page');
+    const btn = document.getElementById('themeToggle');
+    const stored = localStorage.getItem('site-theme');
+    if(stored === 'light') page.classList.add('light');
+    btn.onclick = () => {
+      page.classList.toggle('light');
+      localStorage.setItem('site-theme', page.classList.contains('light') ? 'light' : 'dark');
+    };
+  </script>
+</body>
+</html>
