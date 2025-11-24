@@ -1,15 +1,23 @@
-name: Deploy to S3 + CloudFront
+name: Deploy Admin Service
 
 on:
   push:
+    branches:
+      - dev123
+      - qa
     tags:
-       - "v*"
-  workflow_dispatch:
+      - 'v*'         # e.g., v1.0.0
+      - 'release-*'  # optional pattern
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    # Map environment correctly
+    environment: >
+      ${{ github.ref == 'refs/heads/dev' && 'dev' ||
+         github.ref == 'refs/heads/qa' && 'qa' ||
+         startsWith(github.ref, 'refs/tags/') && 'main' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
