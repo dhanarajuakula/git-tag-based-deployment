@@ -2,7 +2,8 @@ name: Deploy to S3 + CloudFront
 
 on:
   push:
-    branches: ["main"]
+    tags:
+       - "v*"
   workflow_dispatch:
 
 jobs:
@@ -18,11 +19,11 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-south-1   # change if needed
+          aws-region: us-east-1  # change if needed
 
       - name: Sync files to S3
         run: |
-          aws s3 sync . s3://YOUR_BUCKET_NAME --delete --exclude ".git/*" --exclude ".github/*"
+          aws s3 sync . s3://github-tag-deployment-test --delete --exclude ".git/*" --exclude ".github/*"
 
       - name: Invalidate CloudFront cache
         uses: chetan/invalidate-cloudfront-action@v2
