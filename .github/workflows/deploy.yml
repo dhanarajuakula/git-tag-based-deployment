@@ -6,7 +6,7 @@ on:
       - dev
       - qa
     tags:
-      - 'v*'         #tag e.g., v1.0.0
+      - 'v*'         #tag e.g., v1.0.0 this is qa tag
       - 'release.*'  # optional patterns
     paths:
       - 'hh-admin/**'
