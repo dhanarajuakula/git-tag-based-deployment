@@ -1,4 +1,4 @@
-name: Deploy Admin Service
+name: Deploy contest Service
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - 'v*'         # e.g., v1.0.0
       - 'release.*'  # optional patterns
     paths:
-      - 'hh-admin/**'
+      - 'hh-contest/**'
 
 jobs:
   deploy:
