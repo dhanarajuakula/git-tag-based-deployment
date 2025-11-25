@@ -9,7 +9,7 @@ on:
       - 'v*'         # e.g., v1.0.0
       - 'release.*'  # optional pattern
     paths:
-      - 'hh-admin-service/**'
+      - 'hh-admin/**'
 
 jobs:
   deploy:
