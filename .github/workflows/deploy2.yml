@@ -6,8 +6,8 @@ on:
       - dev
       - qa
     tags:
-      - 'v*'         # e.g., v1.0.0
-      - 'release.*'  # optional patterns
+      - 'dummy'         # e.g., v1.0.0
+     
     paths:
       - 'hh-contest/**'
 
