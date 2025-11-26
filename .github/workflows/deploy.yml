@@ -6,7 +6,7 @@ on:
       - dev
       - qa
     tags:
-      - 'v.12.main'         #tag e.g., v1.0.0 This is version2.0
+      - 'v.15.main'         #tag e.g., v1.0.0 This is version2.0
     paths:
       - 'hh-admin/**'
 
