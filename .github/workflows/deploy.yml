@@ -6,7 +6,7 @@ on:
       - dev
       - qa
     tags:
-      - 'fellpony'         #tag e.g., v1.0.0 This is version2.0
+      -  ${{ secrets.TAG_VALUE }}         #tag e.g., v1.0.0 This is version2.0
     paths:
       - 'hh-admin/**'
 
