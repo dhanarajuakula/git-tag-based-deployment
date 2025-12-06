@@ -6,7 +6,7 @@ on:
       - dev
       - qa
     tags:
-      -  drum      #tag e.g., v1.0.0 This is version2.0
+      -  drum3   #tag e.g., v1.0.0 This is version2.0
     paths:
       - 'hh-admin/**'
 
