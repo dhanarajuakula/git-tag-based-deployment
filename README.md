@@ -1,1 +1,1 @@
-# git-tag-based-deployment today
+# git-tag-based-deployment today latest
