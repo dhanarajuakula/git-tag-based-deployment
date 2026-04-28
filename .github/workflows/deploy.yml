@@ -9,6 +9,7 @@ on:
       -  drum6   #tag e.g., v1.0.0 This is
     paths:
       - 'hh-admin/**'
+      - 'hh-contest/**'
 
 jobs:
   deploy:
