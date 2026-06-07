@@ -6,7 +6,7 @@ on:
       - dev
       - qa
     tags:
-      -  peddi-4   #tag e.g., v1.0.0 This is version2.0
+      -  peddi-5   #tag e.g., v1.0.0 This is version2.0
     paths:
       - 'hh-admin/**'
 
